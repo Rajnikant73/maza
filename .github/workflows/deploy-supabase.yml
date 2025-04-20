@@ -13,9 +13,8 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Link & Deploy Supabase (via npx)
+      - name: Push DB schema to Supabase
         run: |
-          npx supabase@latest link --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
           npx supabase@latest db push
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
